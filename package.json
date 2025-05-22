@@ -1,0 +1,36 @@
+{
+  "name": "indumentarias-ventas-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "type": "module",
+  "license": "AGPL-version-3.0",
+  "private": false,
+  "engines": {
+    "node": ">= 14.0.0",
+    "npm": ">= 6.0.0"
+  },
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": "",
+  "keywords": [],
+  "author": {
+    "name": ""
+  },
+  "contributors": [],
+  "scripts": {
+    "dev": "node --env-file=./.env --watch ./src/app.js",
+    "lint": "npx @biomejs/biome check --write ./src"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.8",
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "morgan": "^1.10.0",
+    "postgres": "^3.4.7"
+  }
+}

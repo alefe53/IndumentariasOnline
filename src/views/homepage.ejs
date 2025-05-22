@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= pageTitle %></title>
+    <link rel="stylesheet" href="/css/homepage.css"> <style>
+        /* Estilos adicionales específicos para esta página si son pocos, sino mover a main.css */
+        .welcome-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #e9ecef;
+        }
+        .welcome-section h1 {
+            font-size: 2.8em;
+            margin-bottom: 0.5em;
+            color: #343a40;
+        }
+        .welcome-section p {
+            font-size: 1.2em;
+            color: #495057;
+            margin-bottom: 2em;
+        }
+        .featured-products-title {
+            text-align: center;
+            font-size: 2em;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            color: #343a40;
+        }
+        /* Los estilos de .product-grid y .product-card ya deberían estar en main.css */
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container"> <a href="/home" class="nav-logo">IndumentariasOnline</a>
+                <ul>
+                    <li><a href="/home">Inicio</a></li>
+                    <li><a href="/productos">Productos</a></li> <li><a href="/contacto">Contacto</a></li>   <li><a href="/login">Login</a></li>       </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="welcome-section">
+            <h1>¡Bienvenido/a a IndumentariasOnline!</h1>
+            <p>Descubre las últimas tendencias y encuentra tu estilo perfecto.</p>
+        </section>
+
+        <div class="container">
+            <h2 class="featured-products-title">Novedades Destacadas</h2>
+
+            <% if (typeof productos !== 'undefined' && productos.length > 0) { %>
+                <div class="product-grid">
+                    <% productos.forEach(producto => { %>
+                        <div class="product-card">
+                            <% if (producto.imagenes && producto.imagenes.length > 0) { %>
+                                <img src="<%= producto.imagenes[0] %>" alt="Imagen de <%= producto.nombre %>">
+                            <% } else { %>
+                                <img src="https://placehold.co/300x200/EAEAEA/808080?text=Producto" alt="Imagen no disponible">
+                            <% } %>
+                            <h3><%= producto.nombre %></h3>
+                            <p class="product-description"><%= producto.descripcion ? producto.descripcion.substring(0, 100) + (producto.descripcion.length > 100 ? '...' : '') : 'Descripción no disponible.' %></p>
+                            <p><strong>Material:</strong> <%= producto.material || 'No especificado' %></p>
+                            <p class="price">$<%= producto.precio ? producto.precio.toFixed(2) : 'N/A' %></p>
+                            <p><strong>Stock:</strong> <%= producto.stock_total > 0 ? producto.stock_total + ' unidades' : 'Agotado' %></p>
+                            <a href="/productos/<%= producto.id_producto %>" class="btn-details">Ver Detalles</a>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <p style="text-align: center; margin-top: 20px;">No hay productos destacados para mostrar en este momento.</p>
+            <% } %>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; <%= new Date().getFullYear() %> IndumentariasOnline-Ventas. Todos los derechos reservados.</p>
+    </footer>
+
+    </body>
+</html>

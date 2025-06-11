@@ -42,4 +42,4 @@ class Direccion {
 	}
 }
 
-module.exports = Direccion;
+export default Direccion;

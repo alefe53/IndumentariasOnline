@@ -32,4 +32,4 @@ class DetallePedido {
 	}
 }
 
-module.exports = DetallePedido;
+export default DetallePedido;

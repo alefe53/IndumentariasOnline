@@ -54,4 +54,4 @@ class Carrito {
 	}
 }
 
-module.exports = { Carrito, CarritoItem }; // Exportamos ambos para claridad
+export { Carrito, CarritoItem }; // Exportamos ambos para claridad

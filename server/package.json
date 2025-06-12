@@ -11,9 +11,8 @@
     "npm": ">= 6.0.0"
   },
   "scripts": {
-    "dev": "node --env-file=./.env --watch ./src/app.js",
-    "lint": "npx @biomejs/biome check --write ./src",
-    "vite": "vite"
+    "dev": "nodemon ./src/app.js",
+    "lint": "npx @biomejs/biome check --write ./src"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.8",

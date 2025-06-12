@@ -25,3 +25,6 @@ morgan
 ejs (Embeded JavaScript, para pasar datos a planillas html ahora renombradas .ejs)
 postgres (para conexion a Supabase)
 supabase
+
+A tener en cuenta:
+-el server de sql esta a modo de referencia/respaldo, se utiliza unicamente el de supabase.

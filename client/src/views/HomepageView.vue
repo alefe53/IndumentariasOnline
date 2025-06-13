@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <img src="/images/logo.png" alt="Logo" class="logo" />
     <h1>Bienvenido a Indumentarias Online</h1>
     <p>
       ¡Esta es la página de inicio renderizada con <b>Vue</b> y un diseño
@@ -8,6 +7,10 @@
     </p>
   </div>
 </template>
+
+<script>
+
+</script>
 
 <style>
 body {

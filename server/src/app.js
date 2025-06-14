@@ -6,6 +6,7 @@ import { config } from "../config/config.js";
 import homeRouter from "./routers/home.router.js";
 import { errorMiddleware } from "./middleware/error.middleware.js";
 
+
 const app = express();
 
 // Configuración de vistas
@@ -29,3 +30,4 @@ app.listen(config.server.PORT, () => {
 });
 
 app.use(errorMiddleware);
+

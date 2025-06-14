@@ -27,6 +27,20 @@ export const errorMiddleware = (err, req, res, next) => {
       error: err.message,
     });
   }
+  if (err.name === "SupabaseConfigError") {
+    return res.status(500).json({
+      ok: false,
+      message: "Error de configuración de Supabase",
+      error: err.message,
+    });
+  }
+  if (err.name === "SupabaseClientInitError") {
+    return res.status(500).json({
+      ok: false,
+      message: "Error al inicializar el cliente de Supabase",
+      error: err.message,
+    });
+  }
   res.status(500).json({
     ok: false,
     message: "Error interno del servidor",

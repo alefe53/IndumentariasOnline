@@ -1,0 +1,6 @@
+node_modules
+.env
+.env*
+.vsc
+config.env
+!.config.env

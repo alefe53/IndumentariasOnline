@@ -20,7 +20,13 @@ export const errorMiddleware = (err, req, res, next) => {
       error: err.message,
     });
   }
-
+  if (err.name === "InternalServerError") {
+    return res.status(500).json({
+      ok: false,
+      message: "Internal Server Error",
+      error: err.message,
+    });
+  }
   res.status(500).json({
     ok: false,
     message: "Error interno del servidor",

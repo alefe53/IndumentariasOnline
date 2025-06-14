@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "@supabase/supabase-js": "^2.50.0",
+    "axios": "^1.9.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.10",
+    "pinia": "^3.0.3",
+    "ejs": "^3.1.10"
+  },
+  "scripts": {
+    "dev": "npm --prefix server run dev",
+    "lint": "npm --prefix server run lint"
+  }
+}

@@ -4,11 +4,13 @@
     "axios": "^1.9.0",
     "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
+    "ejs": "^3.1.10",
     "express": "^5.1.0",
     "morgan": "^1.10.0",
+    "mysql2": "^3.14.1",
     "nodemon": "^3.1.10",
     "pinia": "^3.0.3",
-    "ejs": "^3.1.10"
+    "sequelize": "^6.37.7"
   },
   "scripts": {
     "dev": "npm --prefix server run dev",

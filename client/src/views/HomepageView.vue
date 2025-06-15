@@ -6,9 +6,14 @@
       moderno!
     </p>
   </div>
+  <ProductoABM />
 </template>
 
 <script>
+import ProductoABM from '../components/ProductoABM.vue'
+export default {
+  components: { ProductoABM }
+}
 
 </script>
 

@@ -17,9 +17,13 @@ app.set("view engine", "ejs");
 // Archivos estáticos (para imágenes, CSS, etc.)
 app.use(express.static(config.paths.PUBLIC));
 
+//para parsear json
+app.use(express.json());
+
 // Rutas
 app.use("/home", homeRouter);
 app.use("/productos", productoRouter);
+
 
 // Redirige la raíz al home
 app.get("/", (req, res) => {

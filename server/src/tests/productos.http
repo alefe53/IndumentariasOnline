@@ -1,0 +1,55 @@
+###
+# Pruebas para el API de Productos
+# Presiona "Send Request" encima de cada petición para ejecutarla.
+
+# --- Variables del Entorno ---
+# Asegúrate de que tu servidor esté corriendo en este puerto.
+@hostname = localhost
+@port = 3001
+@protocol = http
+# Revisa en tu app.js o archivo principal si tus rutas tienen un prefijo como "/api".
+# Si la ruta es solo "/productos", déjalo como está. Si es "/api/productos", ajústalo.
+@basePath = /productos
+@baseUrl = {{protocol}}://{{hostname}}:{{port}}{{basePath}}
+
+###
+# (1) Obtener TODOS los productos
+# Este endpoint consulta directamente a tu base de datos de SUPABASE.
+# Corresponde a: GET /productos/getAll
+GET {{baseUrl}}/getAll
+Content-Type: application/json
+
+###
+# (2) Obtener productos DESTACADOS
+# Este endpoint llama a la función RPC "get_random_published_products" en SUPABASE.
+# Corresponde a: GET /productos/destacados
+GET {{baseUrl}}/destacados
+Content-Type: application/json
+
+###
+# (3) Crear un NUEVO producto
+# IMPORTANTE: Este endpoint primero crea el producto en MySQL con Sequelize,
+# y LUEGO intenta insertar ese resultado en SUPABASE.
+# Corresponde a: POST /productos/createOne
+POST {{baseUrl}}/createOne
+Content-Type: application/json
+
+{
+  "nombre": "Buzo con Capucha 'Invierno Dev'",
+  "descripcion": "El buzo perfecto para esas largas noches de código. Calentito y con estilo.",
+  "precio": 12500.50,
+  "stock": 50,
+  "categoria": "Buzos"
+}
+
+###
+# (4) Crear un producto con DATOS FALTANTES (Prueba de error)
+# Esto debería fallar en la validación de Sequelize/MySQL si los campos son NOT NULL.
+POST {{baseUrl}}/createOne
+Content-Type: application/json
+
+{
+  "nombre": "Producto Incompleto",
+  "precio": 999
+}
+

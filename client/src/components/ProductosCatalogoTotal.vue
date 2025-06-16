@@ -25,7 +25,7 @@
         <p class="descripcion">{{ producto.descripcion }}</p>
         <p class="categoria">Categoría: {{ producto.categoria }}</p>
         <div class="precio-stock">
-          <span class="precio">${{ producto.precio.toFixed(2) }}</span>
+          <span class="precio">${{ producto.precio }}</span>
           <span class="stock">Stock: {{ producto.stock_total }}</span>
         </div>
       </div>

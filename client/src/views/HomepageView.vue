@@ -6,14 +6,18 @@
       moderno! 
     </p>
   </div>
+  <ProductosCatalogoTotal />
   <ProductoABM />
 </template>
 
 <script>
 import ProductoABM from '../components/ProductoABM.vue'
+import ProductosCatalogoTotal from '../components/ProductosCatalogoTotal.vue'
+
 export default {
-  components: { ProductoABM }
+  components: { ProductoABM, ProductosCatalogoTotal }
 }
+
 
 </script>
 

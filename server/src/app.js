@@ -1,7 +1,7 @@
 // src/app.js
 
 import express from "express";
-import path from "path";
+import cors from 'cors';
 import { config } from "../config/config.js";
 import homeRouter from "./routers/home.router.js";
 import { errorMiddleware } from "./middleware/error.middleware.js";
@@ -10,6 +10,9 @@ import productoRouter from "./routers/producto.router.js";
 
 const app = express();
 
+// Peticiones http
+app.use(cors());
+
 // Configuración de vistas
 app.set("views", config.paths.VIEWS);
 app.set("view engine", "ejs");
@@ -17,7 +20,7 @@ app.set("view engine", "ejs");
 // Archivos estáticos (para imágenes, CSS, etc.)
 app.use(express.static(config.paths.PUBLIC));
 
-//para parsear json
+// Para parsear json
 app.use(express.json());
 
 // Rutas

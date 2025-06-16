@@ -21,8 +21,6 @@
     <!-- 4. Mostrar la lista de productos si todo salió bien -->
     <div v-else class="product-grid">
       <div v-for="producto in productos" :key="producto.id_producto" class="product-card">
-        <!-- Puedes agregar imágenes aquí cuando las tengas -->
-        <!-- <img :src="producto.imagenes[0]" alt="Imagen de producto" class="product-image"> -->
         <h3>{{ producto.nombre }}</h3>
         <p class="descripcion">{{ producto.descripcion }}</p>
         <p class="categoria">Categoría: {{ producto.categoria }}</p>

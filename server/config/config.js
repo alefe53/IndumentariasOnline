@@ -23,11 +23,15 @@ const pathSettings = {
   PUBLIC: path.resolve(__configDirname, "..", "public"),
   CONFIG_FILENAME: __configFilename,
   CONFIG_DIRNAME: __configDirname,
-  SUPABASE_URL: process.env.SUPABASE_URL,
-  SUPABASE_KEY: process.env.SUPABASE_KEY,
-  MYSQL_DATABASE: process.env.MYSQL_DATABASE,
-  MYSQL_USER: process.env.MYSQL_USER,
-  MYSQL_PASSWORD: process.env.MYSQL_PASSWORD,
+  SUPABASE_URL: process.env.SUPABASE_URL || "https://lxqwnhqyornyvavatrsl.supabase.co",
+  SUPABASE_KEY:
+    process.env.SUPABASE_KEY ||
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx4cXduaHF5b3JueXZhdmF0cnNsIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0Nzg4NDU3NSwiZXhwIjoyMDYzNDYwNTc1fQ.ZjoX0qMzlek-2aQ6nu5hqCW0jFu3yLTAy-BSw7sA9Js",
+  BASIC_USER: process.env.BASIC_USER || "juan",
+  BASIC_PASS: process.env.BASIC_PASS || "juan123",
+  // MYSQL_DATABASE: process.env.MYSQL_DATABASE,
+  // MYSQL_USER: process.env.MYSQL_USER,
+  // MYSQL_PASSWORD: process.env.MYSQL_PASSWORD,
 };
 
 export const config = {

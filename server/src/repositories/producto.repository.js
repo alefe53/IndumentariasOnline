@@ -1,6 +1,6 @@
 // src/repositories/producto.repository.js
 import { supabase } from "../database/supabaseClient.js";
-import { Producto } from "../models/mysql/Producto.js";
+import { Producto } from "../models/mysql/associations.js";
 
 export const ProductRepository = {
   findProductosDestacadosDB: async () => {

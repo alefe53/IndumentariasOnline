@@ -8,10 +8,10 @@ import {
 const productoRouter = Router();
 
 // Get All - Productos
-productoRouter.get("/", getAllProductosController);
+productoRouter.get("/getAll", getAllProductosController);
 
 // Create One - Producto
-productoRouter.post("/", createProductoController);
+productoRouter.post("/createOne", createProductoController);
 
 // Get - ProductosDestacados
 productoRouter.get("/destacados", getProductosDestacadosController);

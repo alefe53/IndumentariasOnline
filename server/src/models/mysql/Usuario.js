@@ -1,4 +1,4 @@
-import { sequelize } from "../../databases/sequelize.mysql.cnx.js";
+import { sequelize } from "../../database/sequelize.mysql.cnx.js";
 import { DataTypes } from "sequelize";
 
 const Usuario = sequelize.define(

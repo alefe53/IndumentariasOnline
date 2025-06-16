@@ -1,7 +1,7 @@
-import { sequelize } from "../../databases/sequelize.mysql.cnx.js";
+import { sequelize } from "../../database/sequelize.mysql.cnx.js";
 import { DataTypes } from "sequelize";
 
-const Producto = sequelize.define(
+export const Producto = sequelize.define(
   "Producto",
   {
     id_producto: {

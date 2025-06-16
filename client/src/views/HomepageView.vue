@@ -3,7 +3,7 @@
     <h1>Bienvenido a Indumentarias Online</h1>
     <p>
       ¡Esta es la página de inicio renderizada con <b>Vue</b> y un diseño
-      moderno!
+      moderno! 
     </p>
   </div>
 </template>

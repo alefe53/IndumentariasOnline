@@ -2,23 +2,19 @@
   <div class="catalogo-container">
     <h2>Nuestro Catálogo de Productos</h2>
 
-    <!-- 1. Mensaje de Carga mientras se buscan los datos -->
     <div v-if="isLoading" class="estado-feedback">
       <p>Cargando productos...</p>
     </div>
 
-    <!-- 2. Mensaje de Error si algo sale mal -->
     <div v-else-if="error" class="estado-feedback error">
       <p>Lo sentimos, ocurrió un error al cargar los productos.</p>
       <p class="error-detalle">{{ error }}</p>
     </div>
 
-    <!-- 3. Mensaje si no hay productos -->
     <div v-else-if="productos.length === 0" class="estado-feedback">
       <p>No hay productos disponibles en este momento.</p>
     </div>
 
-    <!-- 4. Mostrar la lista de productos si todo salió bien -->
     <div v-else class="product-grid">
       <div v-for="producto in productos" :key="producto.id_producto" class="product-card">
         <h3>{{ producto.nombre }}</h3>
@@ -38,9 +34,9 @@ export default {
   name: 'ProductosCatalogoTotal',
   data() {
     return {
-      productos: [],      // Aquí guardaremos la lista de productos
-      isLoading: true,    // Para mostrar el mensaje de "Cargando..."
-      error: null,        // Para guardar cualquier mensaje de error
+      productos: [],
+      isLoading: true,
+      error: null,
     };
   },
   async created() {
@@ -50,15 +46,11 @@ export default {
     async fetchProductos() {
       try {
         const response = await fetch('http://localhost:3001/productos/getAll');
-
         if (!response.ok) {
           throw new Error('Error en la respuesta del servidor');
         }
-
         const jsonResponse = await response.json();
-        
         this.productos = jsonResponse.productos.data;
-
       } catch (err) {
         console.error("Error al obtener productos:", err);
         this.error = err.message;
@@ -69,7 +61,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 .catalogo-container {
   max-width: 1200px;
@@ -81,12 +72,16 @@ export default {
 h2 {
   color: #2a4365;
   margin-bottom: 30px;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.9);
 }
 
 .estado-feedback {
   padding: 40px;
   font-size: 1.2rem;
   color: #4a5568;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
 }
 
 .estado-feedback.error {
@@ -107,7 +102,8 @@ h2 {
 }
 
 .product-card {
-  background: white;
+  background: rgba(255, 255, 255, 0.35); 
+  backdrop-filter: blur(8px); 
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
   padding: 20px;
@@ -134,7 +130,7 @@ h2 {
 
 .product-card .categoria {
     font-size: 0.85rem;
-    background-color: #edf2f7;
+    background-color: rgba(237, 242, 247, 0.3); 
     color: #4a5568;
     padding: 3px 8px;
     border-radius: 99px;
@@ -146,7 +142,7 @@ h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: 1px solid #e2e8f0;
+    border-top: 1px solid rgba(226, 232, 240, 0.3);
     padding-top: 15px;
     margin-top: auto;
 }

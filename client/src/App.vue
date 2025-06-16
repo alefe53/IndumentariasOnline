@@ -1,5 +1,7 @@
 <template>
-  <div class="main-bg">
+  <FondoDePantallaPrincipal />
+
+  <div class="main-layout">
     <header class="header">
       <nav>
         <router-link to="/" class="nav-link">Inicio</router-link>
@@ -20,32 +22,35 @@
 </template>
 
 <script setup>
-
+import FondoDePantallaPrincipal from './components/FondoDePantallaPrincipal.vue';
 </script>
 
 <style scoped>
-
-.main-bg {
+.main-layout {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
   display: flex;
   flex-direction: column;
 }
+
 main {
   flex: 1; 
 }
+
 .header {
   display: flex;
   align-items: center;
   justify-content: center; 
-  padding: 24px 48px 16px 48px;
-  background: #fff;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px); 
   box-shadow: 0 2px 12px rgba(44,62,80,0.06);
 }
+
 nav {
   display: flex;
   gap: 32px;
 }
+
 .nav-link {
   color: #2a4365;
   text-decoration: none;
@@ -53,9 +58,11 @@ nav {
   font-size: 1.1rem;
   transition: color 0.2s;
 }
+
 .nav-link:hover {
   color: #4299e1;
 }
+
 .footer {
   margin-top: auto;
   background: #2a4365;

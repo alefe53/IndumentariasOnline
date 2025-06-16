@@ -1,25 +1,29 @@
 <template>
-  <div class="container">
+  <div class="container-abm">
     <h1>Vos</h1>
     <p>
       Qué lees? sos tontito?
       Anda payá bob 🐣
     </p>
   </div>
-  <ProductoABM />
 </template>
 
-<style>
-body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
-  margin: 0;
-  padding: 0;
+<script>
+export default {
+  name: 'ProductoABM',
 }
-.container {
+</script>
+
+
+<style scoped> 
+
+.container-abm {
   max-width: 600px;
   margin: 60px auto;
-  background: #fff;
+  
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  
   border-radius: 16px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   padding: 40px 32px;

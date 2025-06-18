@@ -85,10 +85,8 @@
 <script setup>
 import { ref } from 'vue';
 
-// URL del endpoint en tu servidor.
 const API_URL = 'http://localhost:3001/productos/createOne';
 
-// Objeto reactivo para vincular con los inputs del formulario (v-model)
 const producto = ref({
   nombre: '',
   descripcion: '',
@@ -103,12 +101,10 @@ const producto = ref({
   publicado: true,
 });
 
-// Estado para la UI (feedback al usuario)
 const isLoading = ref(false);
 const successMessage = ref('');
 const errorMessage = ref('');
 
-// Función para resetear el formulario a su estado inicial
 const resetForm = () => {
   producto.value = {
     nombre: '',
@@ -125,14 +121,11 @@ const resetForm = () => {
   };
 };
 
-// Función que se ejecuta al enviar el formulario
 const handleSubmit = async () => {
   isLoading.value = true;
   successMessage.value = '';
   errorMessage.value = '';
 
-  // Construir el payload final para enviar a la API.
-  // Se envían los arrays vacíos para mantener la consistencia con el modelo de datos.
   const payload = {
     ...producto.value,
     talles_disponibles: [],

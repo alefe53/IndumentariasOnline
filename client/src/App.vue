@@ -6,6 +6,7 @@
       <nav>
         <router-link to="/" class="nav-link">Inicio</router-link>
         <a href="#" class="nav-link">Productos</a>
+        <router-link to="/cargar-producto" class="nav-link">Cargar Producto</router-link>
         <a href="#" class="nav-link">Ofertas</a>
         <a href="#" class="nav-link">Contacto</a>
       </nav>

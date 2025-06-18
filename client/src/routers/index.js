@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomepageView from '../Views/HomepageView.vue';
+import CargarProducto from '../views/CargarProducto.vue';
 
 const router = createRouter({
   history: createWebHistory(), 
@@ -8,6 +9,11 @@ const router = createRouter({
       path: '/',
       name: 'Home',
       component: HomepageView,
+    },
+    {
+      path: '/cargar-producto', 
+      name: 'CargarProducto',
+      component: CargarProducto,
     },
   ],
 });

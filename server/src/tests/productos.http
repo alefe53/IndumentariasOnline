@@ -35,11 +35,11 @@ POST {{baseUrl}}/createOne
 Content-Type: application/json
 
 {
-  "nombre": "Buzo con Capucha 'Invierno Dev'",
-  "descripcion": "El buzo perfecto para esas largas noches de código. Calentito y con estilo.",
-  "precio": 12500.50,
-  "stock_total": 50,
-  "categoria": "Buzos"
+  "nombre": "Kamchacka",
+  "descripcion": "Rey de la selva",
+  "precio": 9999.99,
+  "stock_total": 9,
+  "categoria": "Gorras"
 }
 
 ###

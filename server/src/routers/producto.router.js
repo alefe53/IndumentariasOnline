@@ -16,8 +16,8 @@ productoRouter.get("/destacados", getProductosDestacadosController);
 // GET - Buscar un producto
 productoRouter.get("/:id", ProductoController.getProductoByIdController);
 
-// // PUT - Actualizar un producto
-// productoRouter.put("/:id", updateProductoController);
+// PUT - Actualizar un producto
+productoRouter.put("/:id", ProductoController.updateProductoController);
 
 // DELETE - Eliminar un producto
 productoRouter.delete("/:id", ProductoController.deleteProductoController);

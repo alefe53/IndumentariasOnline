@@ -44,4 +44,22 @@ export const ProductoController = {
       next(err);
     }
   },
+  updateProductoController: async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      // Buscar el producto existente
+      const productoViejo = await ProductoService.getProductoPorId(id);
+      if (!productoViejo) {
+        return res.status(404).json({
+          ok: false,
+          message: "Producto no encontrado",
+        });
+      }
+      // Actualizar el producto (debes implementar updateById en el service y repository)
+      const productoActualizado = await ProductoService.updateById(id, req.body);
+      res.json({ ok: true, producto: productoActualizado });
+    } catch (error) {
+      next(error);
+    }
+  },
 };

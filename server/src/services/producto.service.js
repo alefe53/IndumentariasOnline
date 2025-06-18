@@ -79,4 +79,22 @@ export const ProductoService = {
       throw err;
     }
   },
+
+  updateById: async (id, data) => {
+    try {
+      if (!id) {
+        const err = new Error("ID de producto no proporcionado");
+        err.name = "ValidationError";
+        throw err;
+      }
+      // Solo actualiza los campos permitidos
+      return await ProductRepository.updateById(id, data);
+    } catch (error) {
+      const err = new Error(
+        "Servicio: Error al actualizar producto: " + error.message
+      );
+      err.name = "InternalServerError";
+      throw err;
+    }
+  },
 };

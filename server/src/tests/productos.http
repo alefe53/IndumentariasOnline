@@ -35,11 +35,11 @@ POST {{baseUrl}}/createOne
 Content-Type: application/json
 
 {
-  "nombre": "Kamchacka",
-  "descripcion": "Rey de la selva",
-  "precio": 9999.99,
-  "stock_total": 9,
-  "categoria": "Gorras"
+  "nombre": "Buzo con Capucha 'Invierno Dev'",
+  "descripcion": "El buzo perfecto para esas largas noches de código. Calentito y con estilo.",
+  "precio": 12500.50,
+  "stock_total": 50,
+  "categoria": "Buzos"
 }
 
 ###
@@ -62,5 +62,16 @@ Content-Type: application/json
 # (6) Eliminar producto por ID
 DELETE {{baseUrl}}/6
 Content-Type: application/json
+
+###
+# (7) Actualizar producto por ID
+PUT {{baseUrl}}/5
+Content-Type: application/json
+
+{
+  "nombre": "Zapatillas Urbanas - Edicion Limitada",
+  "precio": 10000,
+  "stock_total": 100
+}
 
 ###

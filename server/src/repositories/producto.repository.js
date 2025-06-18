@@ -91,7 +91,10 @@ export const ProductRepository = {
     return { data };
   },
   deleteOne: async (id) => {
-    const { error } = await supabase.from("productos").delete().eq("id_producto", id);
+    const { error } = await supabase
+      .from("productos")
+      .delete()
+      .eq("id_producto", id);
 
     if (error) {
       const err = new Error(
@@ -116,5 +119,29 @@ export const ProductRepository = {
       throw err;
     }
     return data;
+  },
+  updateById: async (id, data) => {
+    // Validación básica
+    if (!data || typeof data !== "object") {
+      const err = new Error("ID o datos inválidos para actualizar producto");
+      err.name = "ValidationError";
+      throw err;
+    }
+    // Actualiza el producto y retorna el actualizado
+    const { data: updated, error } = await supabase
+      .from("productos")
+      .update(data)
+      .eq("id_producto", id)
+      .select()
+      .single();
+
+    if (error) {
+      const err = new Error(
+        "Excepción inesperada en updateById: " + error.message
+      );
+      err.name = "InternalServerError";
+      throw err;
+    }
+    return updated;
   },
 };

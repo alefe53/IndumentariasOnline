@@ -1,28 +1,25 @@
 import { Router } from "express";
 import { getProductosDestacadosController } from "../controllers/homepage.controller.js";
-import {
-  createProductoController,
-  getAllProductosController,
-} from "../controllers/producto.controller.js";
+import { ProductoController } from "../controllers/producto.controller.js";
 
 const productoRouter = Router();
 
 // Get All - Productos
-productoRouter.get("/getAll", getAllProductosController);
+productoRouter.get("/getAll", ProductoController.getAllProductosController);
 
 // Create One - Producto
-productoRouter.post("/createOne", createProductoController);
+productoRouter.post("/createOne", ProductoController.createProductoController);
 
 // Get - ProductosDestacados
 productoRouter.get("/destacados", getProductosDestacadosController);
 
-// // GET - Buscar un producto
-// productoRouter.get("/:id", getProductoByIdController);
+// GET - Buscar un producto
+productoRouter.get("/:id", ProductoController.getProductoByIdController);
 
 // // PUT - Actualizar un producto
 // productoRouter.put("/:id", updateProductoController);
 
-// // DELETE - Eliminar un producto
-// productoRouter.delete("/:id", deleteProductoController);
+// DELETE - Eliminar un producto
+productoRouter.delete("/:id", ProductoController.deleteProductoController);
 
 export default productoRouter;

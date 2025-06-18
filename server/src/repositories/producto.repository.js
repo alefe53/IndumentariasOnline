@@ -1,6 +1,5 @@
 // src/repositories/producto.repository.js
 import { supabase } from "../database/supabaseClient.js";
-import { Producto } from "../models/mysql/associations.js";
 
 export const ProductRepository = {
   findProductosDestacadosDB: async () => {
@@ -68,10 +67,17 @@ export const ProductRepository = {
     }
   },
   createOne: async (producto) => {
-    const nuevoProducto = await Producto.create(producto);
+    // Validación básica (puedes mejorarla con Joi u otra librería si lo deseas)
+    if (!producto || typeof producto !== "object") {
+      const err = new Error("Datos de producto inválidos");
+      err.name = "ValidationError";
+      throw err;
+    }
+
+    // Insertar directamente en Supabase
     const { data, error } = await supabase
       .from("productos")
-      .insert([nuevoProducto])
+      .insert([producto])
       .select();
 
     if (error) {
@@ -83,5 +89,32 @@ export const ProductRepository = {
     }
 
     return { data };
+  },
+  deleteOne: async (id) => {
+    const { error } = await supabase.from("productos").delete().eq("id_producto", id);
+
+    if (error) {
+      const err = new Error(
+        "Excepción inesperada en deleteOne: " + error.message
+      );
+      err.name = "InternalServerError";
+      throw err;
+    }
+  },
+  getById: async (id) => {
+    const { data, error } = await supabase
+      .from("productos")
+      .select("*")
+      .eq("id_producto", id)
+      .single();
+
+    if (error) {
+      const err = new Error(
+        "Excepción inesperada en getById: " + error.message
+      );
+      err.name = "InternalServerError";
+      throw err;
+    }
+    return data;
   },
 };

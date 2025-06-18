@@ -21,7 +21,7 @@ export const Producto = sequelize.define(
       type: DataTypes.FLOAT,
       allowNull: false,
     },
-    stock: {
+    stock_total: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },

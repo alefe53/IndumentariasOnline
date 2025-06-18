@@ -39,4 +39,3 @@ app.listen(config.server.PORT, () => {
 });
 
 app.use(errorMiddleware);
-

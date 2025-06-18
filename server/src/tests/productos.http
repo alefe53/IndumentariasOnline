@@ -38,7 +38,7 @@ Content-Type: application/json
   "nombre": "Buzo con Capucha 'Invierno Dev'",
   "descripcion": "El buzo perfecto para esas largas noches de código. Calentito y con estilo.",
   "precio": 12500.50,
-  "stock": 50,
+  "stock_total": 50,
   "categoria": "Buzos"
 }
 
@@ -53,3 +53,14 @@ Content-Type: application/json
   "precio": 999
 }
 
+###
+# (5) Obtener producto por ID
+GET {{baseUrl}}/1
+Content-Type: application/json
+
+###
+# (6) Eliminar producto por ID
+DELETE {{baseUrl}}/6
+Content-Type: application/json
+
+###

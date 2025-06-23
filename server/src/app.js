@@ -6,6 +6,7 @@ import { config } from "../config/config.js";
 import homeRouter from "./routers/home.router.js";
 import { errorMiddleware } from "./middleware/error.middleware.js";
 import productoRouter from "./routers/producto.router.js";
+import authRoutes from "./routers/auth.router.js";
 
 
 const app = express();
@@ -26,6 +27,7 @@ app.use(express.json());
 // Rutas
 app.use("/home", homeRouter);
 app.use("/productos", productoRouter);
+app.use('/api/auth', authRoutes);
 
 
 // Redirige la raíz al home

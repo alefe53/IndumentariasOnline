@@ -29,8 +29,9 @@
 <script setup>
 import FondoDePantallaPrincipal from './components/FondoDePantallaPrincipal.vue';
 import { ref, onMounted } from 'vue';
+import { useAuthUser } from './useAuthUser';
 import { auth } from './auth';
-const user = ref(null);
+const { user } = useAuthUser();
 
 onMounted(() => {
   user.value = auth.getUser();

@@ -40,7 +40,7 @@ export default {
         if (!response.ok) throw new Error(data.error || 'Error desconocido');
 
         auth.login(data.token, data.user);
-        this.$router.push('/');
+        window.location.reload();
       } catch (err) {
         this.error = err.message;
       }

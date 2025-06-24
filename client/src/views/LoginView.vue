@@ -29,7 +29,7 @@ export default {
     async login() {
       this.error = '';
       try {
-        const response = await fetch('http://localhost:3000/api/auth/login', {
+        const response = await fetch('http://localhost:3001/api/auth/login', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email: this.email, password: this.password })
@@ -39,7 +39,7 @@ export default {
 
         if (!response.ok) throw new Error(data.error || 'Error desconocido');
 
-        auth.login(data.token);
+        auth.login(data.token, data.user);
         this.$router.push('/');
       } catch (err) {
         this.error = err.message;

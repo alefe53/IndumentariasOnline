@@ -1,4 +1,4 @@
-import * as supabase from '../database/supabaseClient.js';
+import { supabase } from "../database/supabaseClient.js";
 
 const AuthController = {
   register: async (req, res) => {

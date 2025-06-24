@@ -20,13 +20,25 @@
 
     <footer class="footer">
       <p>&copy; 2024 Indumentarias Online. Todos los derechos reservados.</p>
+      <p v-if="user && user.email">Sesión iniciada como: {{ user.email }}</p>
+      <p v-else>No has iniciado sesión</p>
     </footer>
   </div>
 </template>
 
 <script setup>
 import FondoDePantallaPrincipal from './components/FondoDePantallaPrincipal.vue';
+import { ref, onMounted } from 'vue';
+import { auth } from './auth';
+const user = ref(null);
+
+onMounted(() => {
+  user.value = auth.getUser();
+  console.log('Usuario cargado:', user.value);
+});
 </script>
+
+
 
 <style scoped>
 .main-layout {

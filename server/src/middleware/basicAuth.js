@@ -1,25 +1,23 @@
-import basicAuth from "basic-auth";
-
-const VALID_USER = process.env.BASIC_USER || "juan";
-const VALID_PASS = process.env.BASIC_PASS || "juan123";
+import jwt from 'jsonwebtoken';
 
 export const authMiddleware = (req, res, next) => {
-  const user = basicAuth(req);
+  const authHeader = req.headers.authorization;
 
-  console.log(user);
-
-  const validUser =
-    user && user.name === VALID_USER && user.pass === VALID_PASS;
-
-  if (!validUser) {
-    // En vez de responder aquí, creamos un error y lo pasamos a next()
-    const err = new Error("Authentication required.");
-    err.name = "UnauthorizedError";
-    // Para que el errorMiddleware pueda setear el header si lo desea
-    err.wwwAuthenticate = 'Basic realm="example"';
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    const err = new Error('Token no proporcionado.');
+    err.name = 'UnauthorizedError';
     return next(err);
   }
 
-  console.log("Valid Tokens!");
-  next();
+  const token = authHeader.split(' ')[1];
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = decoded;
+    next();
+  } catch (error) {
+    const err = new Error('Token inválido.');
+    err.name = 'UnauthorizedError';
+    return next(err);
+  }
 };

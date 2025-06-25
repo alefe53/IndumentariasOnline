@@ -7,6 +7,7 @@ export const errorMiddleware = (err, req, res, next) => {
       ok: false,
       message: "Error de validación",
       error: err.message,
+      payload: err.payload || null,
     });
   }
   if (err.name === "UnauthorizedError") {
@@ -18,6 +19,7 @@ export const errorMiddleware = (err, req, res, next) => {
       ok: false,
       message: "No autorizado",
       error: err.message,
+      payload: err.payload || null,
     });
   }
   if (err.name === "InternalServerError") {
@@ -25,6 +27,7 @@ export const errorMiddleware = (err, req, res, next) => {
       ok: false,
       message: "Internal Server Error",
       error: err.message,
+      payload: err.payload || null,
     });
   }
   if (err.name === "SupabaseConfigError") {
@@ -32,6 +35,7 @@ export const errorMiddleware = (err, req, res, next) => {
       ok: false,
       message: "Error de configuración de Supabase",
       error: err.message,
+      payload: err.payload || null,
     });
   }
   if (err.name === "SupabaseClientInitError") {
@@ -39,11 +43,13 @@ export const errorMiddleware = (err, req, res, next) => {
       ok: false,
       message: "Error al inicializar el cliente de Supabase",
       error: err.message,
+      payload: err.payload || null,
     });
   }
   res.status(500).json({
     ok: false,
     message: "Error interno del servidor",
     error: err.message,
+    payload: err.payload || null,
   });
 };

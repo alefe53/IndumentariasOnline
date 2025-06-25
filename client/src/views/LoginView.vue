@@ -11,41 +11,51 @@
       <button type="submit">Ingresar</button>
     </form>
     <p v-if="error" class="error">{{ error }}</p>
+    <div v-if="loginSuccess" class="alert-success">
+      ¡Bienvenido/a, {{ loginEmail }}!
+    </div>
   </div>
 </template>
 
 <script>
-import { auth } from '../auth';
+import { auth } from "../auth";
 
 export default {
   data() {
     return {
-      email: '',
-      password: '',
-      error: ''
+      email: "",
+      password: "",
+      error: "",
+      loginSuccess: false,
+      loginEmail: "",
     };
   },
   methods: {
     async login() {
-      this.error = '';
+      this.error = "";
       try {
-        const response = await fetch('http://localhost:3001/api/auth/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email: this.email, password: this.password })
+        const response = await fetch("http://localhost:3001/api/auth/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: this.email, password: this.password }),
         });
 
         const data = await response.json();
 
-        if (!response.ok) throw new Error(data.error || 'Error desconocido');
+        if (!response.ok) throw new Error(data.error || "Error desconocido");
 
         auth.login(data.token, data.user);
-        window.location.reload();
+        this.loginSuccess = true;
+        this.loginEmail = data.user.email;
+        setTimeout(() => {
+          this.loginSuccess = false;
+        }, 3000);
+        // window.location.reload(); // Si quieres recargar, hazlo después del cartel
       } catch (err) {
         this.error = err.message;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -57,7 +67,7 @@ export default {
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
 }
 
 h1 {
@@ -112,5 +122,27 @@ button:hover {
   color: red;
   margin-top: 10px;
   text-align: center;
+}
+
+.alert-success {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 </style>

@@ -52,7 +52,7 @@ Este sistema es un backend Node.js/Express para una tienda de indumentaria, con 
 
 ## Pruebas manuales
 
-Ver archivo `src/tests/estadisticas.http` para ejemplos de casos felices y no felices.
+Ver archivo `src/tests/estadisticas.http` y `src/tests/productos.http` para ejemplos de casos felices y no felices.
 
 ---
 

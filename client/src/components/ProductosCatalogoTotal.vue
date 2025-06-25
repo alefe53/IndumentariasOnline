@@ -50,7 +50,7 @@ export default {
           throw new Error('Error en la respuesta del servidor');
         }
         const jsonResponse = await response.json();
-        this.productos = jsonResponse.productos.data;
+        this.productos = jsonResponse.payload;
       } catch (err) {
         console.error("Error al obtener productos:", err);
         this.error = err.message;

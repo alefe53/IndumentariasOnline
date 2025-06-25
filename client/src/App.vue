@@ -5,7 +5,6 @@
     <header class="header">
       <nav>
         <router-link to="/" class="nav-link">Inicio</router-link>
-        <a href="#" class="nav-link">Productos</a>
         <router-link to="/cargar-producto" class="nav-link"
           >Cargar Producto</router-link
         >
@@ -14,8 +13,6 @@
         >
         <router-link to="/login" class="nav-link">Loguearse</router-link>
         <router-link to="/register" class="nav-link">Registrarse</router-link>
-        <a href="#" class="nav-link">Ofertas</a>
-        <a href="#" class="nav-link">Contacto</a>
       </nav>
     </header>
 

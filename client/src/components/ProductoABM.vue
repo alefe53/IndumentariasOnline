@@ -1,29 +1,24 @@
 <template>
   <div class="container-abm">
-    <h1>Vos</h1>
-    <p>
-      Qué lees? sos tontito?
-      Anda payá bob 🐣
-    </p>
+    <h1>Gestión de Productos</h1>
+    <p>Aquí puedes agregar, editar o eliminar productos del catálogo.</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ProductoABM',
-}
+  name: "ProductoABM",
+};
 </script>
 
-
-<style scoped> 
-
+<style scoped>
 .container-abm {
   max-width: 600px;
   margin: 60px auto;
-  
+
   background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(5px);
-  
+
   border-radius: 16px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   padding: 40px 32px;

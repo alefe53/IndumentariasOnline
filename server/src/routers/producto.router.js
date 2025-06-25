@@ -10,9 +10,6 @@ productoRouter.get("/getAll", ProductoController.getAllProductosController);
 // Create One - Producto
 productoRouter.post("/createOne", ProductoController.createProductoController);
 
-// Get - ProductosDestacados
-productoRouter.get("/destacados", getProductosDestacadosController);
-
 // GET - Buscar un producto
 productoRouter.get("/:id", ProductoController.getProductoByIdController);
 
@@ -21,5 +18,8 @@ productoRouter.put("/:id", ProductoController.updateProductoController);
 
 // DELETE - Eliminar un producto
 productoRouter.delete("/:id", ProductoController.deleteProductoController);
+
+// Get - ProductosDestacados
+productoRouter.get("/destacados", getProductosDestacadosController);
 
 export default productoRouter;

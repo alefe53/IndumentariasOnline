@@ -6,8 +6,13 @@
       <nav>
         <router-link to="/" class="nav-link">Inicio</router-link>
         <a href="#" class="nav-link">Productos</a>
-        <router-link to="/cargar-producto" class="nav-link">Cargar Producto</router-link>
-        <router-link to="/login" class ="nav-link">Loguearse</router-link>
+        <router-link to="/cargar-producto" class="nav-link"
+          >Cargar Producto</router-link
+        >
+        <router-link to="/ventas-mensuales" class="nav-link"
+          >Ventas mensuales</router-link
+        >
+        <router-link to="/login" class="nav-link">Loguearse</router-link>
         <router-link to="/register" class="nav-link">Registrarse</router-link>
         <a href="#" class="nav-link">Ofertas</a>
         <a href="#" class="nav-link">Contacto</a>
@@ -27,19 +32,17 @@
 </template>
 
 <script setup>
-import FondoDePantallaPrincipal from './components/FondoDePantallaPrincipal.vue';
-import { ref, onMounted } from 'vue';
-import { useAuthUser } from './useAuthUser';
-import { auth } from './auth';
+import FondoDePantallaPrincipal from "./components/FondoDePantallaPrincipal.vue";
+import { ref, onMounted } from "vue";
+import { useAuthUser } from "./useAuthUser";
+import { auth } from "./auth";
 const { user } = useAuthUser();
 
 onMounted(() => {
   user.value = auth.getUser();
-  console.log('Usuario cargado:', user.value);
+  console.log("Usuario cargado:", user.value);
 });
 </script>
-
-
 
 <style scoped>
 .main-layout {
@@ -49,17 +52,17 @@ onMounted(() => {
 }
 
 main {
-  flex: 1; 
+  flex: 1;
 }
 
 .header {
   display: flex;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   padding: 10px;
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px); 
-  box-shadow: 0 2px 12px rgba(44,62,80,0.06);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.06);
 }
 
 nav {

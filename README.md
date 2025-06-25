@@ -95,6 +95,20 @@ Ver archivo `src/tests/estadisticas.http` para ejemplos de casos felices y no fe
 
 ---
 
+## Cómo correr el servidor con Docker Compose
+
+1. Desde la raíz del proyecto, ejecuta:
+   ```sh
+   docker compose up --build
+   ```
+2. El backend estará disponible en http://localhost:3001 y el frontend en http://localhost:5173
+3. Para detener los servicios:
+   ```sh
+   docker compose down
+   ```
+
+---
+
 ## Observaciones
 
 - El middleware de errores y los payloads están estandarizados para facilitar el consumo desde frontend.

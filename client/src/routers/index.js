@@ -3,6 +3,7 @@ import HomepageView from "../views/HomepageView.vue";
 import CargarProducto from "../views/CargarProducto.vue";
 import RegisterView from "../views/RegisterView.vue";
 import LoginView from "../views/LoginView.vue";
+import VentasMensualesView from "../views/VentasMensualesView.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -19,6 +20,11 @@ const router = createRouter({
     },
     { path: "/register", component: RegisterView },
     { path: "/login", component: LoginView },
+    {
+      path: "/ventas-mensuales",
+      name: "VentasMensuales",
+      component: VentasMensualesView,
+    },
   ],
 });
 

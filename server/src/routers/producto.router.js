@@ -4,6 +4,9 @@ import { ProductoController } from "../controllers/producto.controller.js";
 
 const productoRouter = Router();
 
+// Get - ProductosDestacados
+productoRouter.get("/destacados", getProductosDestacadosController);
+
 // Get All - Productos
 productoRouter.get("/getAll", ProductoController.getAllProductosController);
 
@@ -18,8 +21,5 @@ productoRouter.put("/:id", ProductoController.updateProductoController);
 
 // DELETE - Eliminar un producto
 productoRouter.delete("/:id", ProductoController.deleteProductoController);
-
-// Get - ProductosDestacados
-productoRouter.get("/destacados", getProductosDestacadosController);
 
 export default productoRouter;

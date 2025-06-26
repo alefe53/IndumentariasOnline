@@ -71,7 +71,7 @@ Ver archivo `src/tests/estadisticas.http` y `src/tests/productos.http` para ejem
    ```
 2. Iniciar el servidor:
    ```sh
-   npm start
+   npm run dev
    ```
 3. Probar los endpoints usando el archivo `.http` o Postman.
 

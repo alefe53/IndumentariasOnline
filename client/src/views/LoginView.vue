@@ -20,6 +20,7 @@
 
 <script>
 import { auth } from "../auth";
+import { useAuthUser } from "../useAuthUser";
 
 export default {
   data() {
@@ -46,12 +47,15 @@ export default {
         if (!response.ok) throw new Error(data.error || "Error desconocido");
 
         auth.login(data.token, data.user);
+        // ACTUALIZA EL USUARIO GLOBAL REACTIVO
+        const { user } = useAuthUser();
+        user.value = data.user;
+
         this.loginSuccess = true;
         this.loginEmail = data.user.email;
         setTimeout(() => {
           this.loginSuccess = false;
         }, 3000);
-        // window.location.reload(); // Si quieres recargar, hazlo después del cartel
       } catch (err) {
         this.error = err.message;
       }

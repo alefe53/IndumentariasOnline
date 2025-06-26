@@ -1,7 +1,6 @@
 <template>
   <div class="container-abm">
     <h1>Editar Productos</h1>
-    <div v-if="mensaje" class="mensaje">{{ mensaje }}</div>
     <hr />
     <h2>Listado de productos</h2>
     <ul class="lista-productos">
@@ -33,6 +32,7 @@
         </template>
       </li>
     </ul>
+    <div v-if="mensaje" class="mensaje mensaje-abajo">{{ mensaje }}</div>
   </div>
 </template>
 
@@ -67,7 +67,12 @@ export default {
     },
     empezarEdicion(prod) {
       this.editandoId = prod.id || prod.id_producto;
-      this.editProducto = { ...prod };
+      this.editProducto = {
+        nombre: prod.nombre,
+        precio: prod.precio,
+        stock_total: prod.stock_total ?? prod.stock ?? 0,
+        categoria: prod.categoria,
+      };
     },
     cancelarEdicion() {
       this.editandoId = null;
@@ -104,12 +109,20 @@ export default {
           return;
         }
         // Actualizar el producto en el array localmente
-        this.productos = this.productos.map((prod) =>
-          (prod.id || prod.id_producto) === idFinal
-            ? { ...prod, ...body }
-            : prod
-        );
+        this.productos = this.productos.map((prod) => {
+          if ((prod.id || prod.id_producto) === idFinal) {
+            return {
+              ...prod,
+              nombre,
+              precio,
+              stock_total,
+              categoria,
+            };
+          }
+          return prod;
+        });
         this.mensaje = "Producto editado con éxito";
+        await this.cargarProductos();
         this.cancelarEdicion();
       } catch (e) {
         this.mensaje = `Error al editar producto: ${e.message}`;
@@ -168,6 +181,9 @@ h1 {
   margin: 10px 0;
   color: #3182ce;
   font-weight: 600;
+}
+.mensaje-abajo {
+  margin-top: 24px;
 }
 .lista-productos input {
   margin: 0 4px;

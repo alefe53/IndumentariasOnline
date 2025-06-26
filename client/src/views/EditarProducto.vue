@@ -149,33 +149,74 @@ h1 {
   margin-bottom: 16px;
   font-size: 2.2rem;
 }
+h2 {
+  color: #2a4365;
+  margin-bottom: 18px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
+}
 .lista-productos {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 .lista-productos li {
-  background: rgba(255, 255, 255, 0.7);
-  margin-bottom: 10px;
-  padding: 10px 16px;
-  border-radius: 8px;
+  background: linear-gradient(90deg, #e0e7ff 0%, #f0f4ff 100%);
+  margin-bottom: 16px;
+  padding: 18px 24px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 2px 8px #6366f122;
+  box-shadow: 0 4px 16px #6366f122;
+  transition: box-shadow 0.2s, transform 0.2s;
+  border: 1.5px solid #a5b4fc;
+  color: #312e81;
+}
+.lista-productos li:hover {
+  box-shadow: 0 8px 32px #6366f144;
+  transform: translateY(-2px) scale(1.01);
+}
+.lista-productos strong,
+.lista-productos span,
+.lista-productos .info-producto {
+  color: #312e81;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-right: 12px;
+}
+.lista-productos input {
+  margin: 0 6px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1.5px solid #6366f1;
+  width: 110px;
+  font-size: 1rem;
+  background: #f7fafc;
+  color: #2a4365;
+  transition: border 0.2s;
+}
+.lista-productos input:focus {
+  border: 1.5px solid #312e81;
+  outline: none;
 }
 .lista-productos button {
-  background: #4a90e2;
+  background: linear-gradient(90deg, #6366f1 0%, #4a90e2 100%);
   color: #fff;
   border: none;
-  border-radius: 6px;
-  padding: 6px 12px;
+  border-radius: 8px;
+  padding: 8px 18px;
   font-weight: bold;
+  font-size: 1rem;
   cursor: pointer;
-  transition: background 0.2s;
-  margin-left: 6px;
+  transition: background 0.2s, transform 0.15s;
+  margin-left: 10px;
+  box-shadow: 0 2px 8px #6366f122;
 }
 .lista-productos button:hover {
-  background: #357dc0;
+  background: linear-gradient(90deg, #312e81 0%, #357dc0 100%);
+  transform: scale(1.05);
 }
 .mensaje {
   margin: 10px 0;
@@ -184,17 +225,5 @@ h1 {
 }
 .mensaje-abajo {
   margin-top: 24px;
-}
-.lista-productos input {
-  margin: 0 4px;
-  padding: 6px;
-  border-radius: 4px;
-  border: 1px solid #6366f1;
-  width: 120px;
-}
-.stock-anterior {
-  margin-left: 8px;
-  font-size: 0.9rem;
-  color: #555;
 }
 </style>

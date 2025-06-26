@@ -1,29 +1,21 @@
 <template>
-  <div class="catalogo-container">
+  <div class="catalogo-container container-abm">
     <h2>Nuestro Catálogo de Productos</h2>
-
     <div v-if="isLoading" class="estado-feedback">
       <p>Cargando productos...</p>
     </div>
-
     <div v-else-if="error" class="estado-feedback error">
       <p>Lo sentimos, ocurrió un error al cargar los productos.</p>
       <p class="error-detalle">{{ error }}</p>
     </div>
-
     <div v-else-if="productos.length === 0" class="estado-feedback">
       <p>No hay productos disponibles en este momento.</p>
     </div>
-
     <div v-else class="product-grid">
-      <div
-        v-for="producto in productos"
-        :key="producto.id_producto"
-        class="product-card"
-      >
-        <h3>{{ producto.nombre }}</h3>
-        <p class="descripcion">{{ producto.descripcion }}</p>
-        <p class="categoria">Categoría: {{ producto.categoria }}</p>
+      <div v-for="producto in productos" :key="producto.id_producto" class="product-card">
+        <strong>{{ producto.nombre }}</strong>
+        <span class="descripcion">{{ producto.descripcion }}</span>
+        <span class="categoria">Categoría: {{ producto.categoria }}</span>
         <div class="precio-stock">
           <span class="precio">${{ producto.precio }}</span>
           <span class="stock">Stock: {{ producto.stock }}</span>
@@ -65,11 +57,16 @@ export default {
   },
 };
 </script>
+
 <style scoped>
-.catalogo-container {
+.catalogo-container.container-abm {
   max-width: 1200px;
-  margin: 40px auto;
-  padding: 2rem;
+  margin: 60px auto;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  padding: 40px 32px;
   text-align: center;
 }
 
@@ -79,85 +76,81 @@ h2 {
   text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.9);
 }
 
-.estado-feedback {
-  padding: 40px;
-  font-size: 1.1rem;
-  color: #4a5568;
-  background: #f7fafc;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.estado-feedback.error {
-  color: #c53030;
-  background-color: #ffe5e5;
-  border-radius: 8px;
-}
-.error-detalle {
-  font-size: 0.9rem;
-  font-style: italic;
-}
-
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 25px;
-  text-align: left;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 28px;
+  margin-top: 24px;
 }
 
 .product-card {
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  padding: 20px;
+  background: linear-gradient(90deg, #e0e7ff 0%, #f0f4ff 100%);
+  border-radius: 14px;
+  box-shadow: 0 4px 16px #6366f122;
+  border: 1.5px solid #a5b4fc;
+  padding: 24px 20px 18px 20px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  align-items: flex-start;
+  transition: box-shadow 0.2s, transform 0.2s;
+  min-height: 180px;
 }
 
 .product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px #6366f144;
+  transform: translateY(-2px) scale(1.01);
 }
 
-.product-card h3 {
-  margin-top: 0;
-  color: #2d3748;
+.product-card strong {
+  color: #312e81;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 6px;
 }
 
-.product-card .descripcion {
-  color: #718096;
-  flex-grow: 1;
-  margin-bottom: 15px;
+.descripcion {
+  color: #4b5563;
+  font-size: 0.98rem;
+  margin-bottom: 2px;
 }
 
-.product-card .categoria {
-  font-size: 0.85rem;
-  background-color: rgba(237, 242, 247, 0.3);
-  color: #4a5568;
-  padding: 3px 8px;
-  border-radius: 99px;
-  align-self: flex-start;
-  margin-bottom: 15px;
+.categoria {
+  color: #6366f1;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
 }
 
 .precio-stock {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid rgba(226, 232, 240, 0.3);
-  padding-top: 15px;
   margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
 }
 
 .precio {
-  font-size: 1.4rem;
-  font-weight: bold;
   color: #2a4365;
+  font-size: 1.1rem;
+  font-weight: bold;
 }
 
 .stock {
-  font-size: 0.9rem;
-  color: #a0aec0;
+  color: #357dc0;
+  font-size: 0.98rem;
+}
+
+.estado-feedback {
+  margin: 20px 0;
+  color: #3182ce;
+  font-weight: 600;
+}
+
+.estado-feedback.error {
+  color: #e53e3e;
+}
+
+.error-detalle {
+  font-size: 0.95rem;
+  color: #b91c1c;
 }
 </style>

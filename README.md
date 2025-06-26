@@ -11,7 +11,7 @@ Este sistema es un backend Node.js/Express para una tienda de indumentaria, con 
 ### Productos más vendidos
 
 - **GET** `/estadisticas/productos-mas-vendidos?top=N`
-- Devuelve los N productos más vendidos (por defecto top=5).
+- Devuelve los N productos más vendidos.
 - **Respuesta exitosa:**
 
 ```json

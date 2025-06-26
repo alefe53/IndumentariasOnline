@@ -1,26 +1,20 @@
 ###
-# (1) Caso feliz: Obtener productos más vendidos (top 5 por defecto)
-GET http://localhost:3001/estadisticas/productos-mas-vendidos
-Content-Type: application/json
-
-###
-# (2) Caso feliz: Obtener productos más vendidos (top 2)
+# (1) Caso feliz: Obtener productos más vendidos (top 2)
 GET http://localhost:3001/estadisticas/productos-mas-vendidos?top=2
 Content-Type: application/json
 
 ###
-# (3) Caso feliz: Obtener ventas agrupadas por mes
+# (2) Caso feliz: Obtener ventas agrupadas por mes
 GET http://localhost:3001/estadisticas/ventas-por-mes
 Content-Type: application/json
 
 ###
-# (4) Caso no feliz: top inválido (debería devolver payload vacío o error)
+# (3) Caso no feliz: top inválido (debería devolver payload vacío o error)
 GET http://localhost:3001/estadisticas/productos-mas-vendidos?top=abc
 Content-Type: application/json
 
 ###
-# (5) Caso no feliz: sin datos (vacía la base y prueba)
+# (4) Caso no feliz: sin datos (vacía la base y prueba)
 GET http://localhost:3001/estadisticas/productos-mas-vendidos
 Content-Type: application/json
-
 

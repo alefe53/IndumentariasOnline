@@ -1,6 +1,4 @@
 <template>
-  <FondoDePantallaPrincipal />
-
   <div class="main-layout">
     <header class="header">
       <nav>
@@ -29,7 +27,6 @@
 </template>
 
 <script setup>
-import FondoDePantallaPrincipal from "./components/FondoDePantallaPrincipal.vue";
 import { ref, onMounted } from "vue";
 import { useAuthUser } from "./useAuthUser";
 import { auth } from "./auth";
@@ -50,42 +47,46 @@ onMounted(() => {
 
 main {
   flex: 1;
+  padding: 2rem;
 }
 
 .header {
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  box-shadow: 0 2px 12px rgba(44, 62, 80, 0.06);
+  padding: 2rem 0;
+  background-color: transparent;
 }
 
 nav {
   display: flex;
-  gap: 32px;
+  gap: 1.5rem;
+  background-color: #ffffff;
+  padding: 0.75rem 2rem;
+  border-radius: 32px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .nav-link {
   color: #2a4365;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 1.1rem;
-  transition: color 0.2s;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  transition: background-color 0.2s, color 0.2s;
 }
 
 .nav-link:hover {
-  color: #4299e1;
+  color: #0077ff;
+  background-color: e6f0ff;
 }
 
 .footer {
   margin-top: auto;
-  background: #2a4365;
-  color: #fff;
+  background: #f1f5f9;
+  color: #2d3748;
   text-align: center;
-  padding: 18px 0 10px 0;
+  padding: 1rem;
   font-size: 1rem;
-  letter-spacing: 1px;
 }
 </style>

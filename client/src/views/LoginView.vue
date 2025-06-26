@@ -1,5 +1,5 @@
 <template>
-  <div class="login-container">
+  <div class="form-container">
     <h1>Iniciar sesión</h1>
     <form @submit.prevent="login">
       <label for="email">Email:</label>
@@ -10,6 +10,7 @@
 
       <button type="submit">Ingresar</button>
     </form>
+
     <p v-if="error" class="error">{{ error }}</p>
     <div v-if="loginSuccess" class="alert-success">
       ¡Bienvenido/a, {{ loginEmail }}!
@@ -60,20 +61,20 @@ export default {
 </script>
 
 <style scoped>
-.login-container {
-  max-width: 400px;
+.form-container {
+  max-width: 420px;
   margin: 80px auto;
   padding: 30px;
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  font-family: "Segoe UI", sans-serif;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Lato', sans-serif;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 20px;
-  color: #333;
+  margin-bottom: 24px;
+  color: #2a2a2a;
 }
 
 form {
@@ -82,10 +83,9 @@ form {
 }
 
 label {
-  margin-top: 10px;
-  margin-bottom: 4px;
+  margin: 12px 0 6px;
   color: #444;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 input {
@@ -93,35 +93,42 @@ input {
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 1rem;
-  outline: none;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 input:focus {
-  border-color: #0077ff;
-  box-shadow: 0 0 0 2px rgba(0, 119, 255, 0.2);
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 2px #4a90e250;
 }
 
 button {
   margin-top: 20px;
   padding: 12px;
-  background-color: #0077ff;
+  background-color: #4a90e2;
   color: white;
   font-weight: bold;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-  background-color: #005fd1;
+  background-color: #357dc0;
+}
+
+.error, .success {
+  margin-top: 16px;
+  text-align: center;
+  font-weight: bold;
 }
 
 .error {
-  color: red;
-  margin-top: 10px;
-  text-align: center;
+  color: red
+}
+
+.success {
+  color: #28a745;
 }
 
 .alert-success {

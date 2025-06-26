@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container card">
     <h1>Bienvenido a Indumentarias Online</h1>
     <p>
       Conocé más sobre nuestros <b>productos</b> 
@@ -23,7 +23,7 @@ export default {
 .container {
   max-width: 600px;
   margin: 60px auto;
-
+  margin-top: 60px;
   background: rgba(255, 255, 255, 0.19);
   
   backdrop-filter: blur(5px);
@@ -35,13 +35,14 @@ export default {
 }
 
 h1 {
-  color: #2a4365;
-  font-size: 2.2rem;
+  color: #2a2a2a;
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
 }
 
 p {
-  color: #4a5568;
-  font-size: 1.1rem;
+  color: #444;
+  font-size: 1.2rem;
   margin-bottom: 0;
 }
 

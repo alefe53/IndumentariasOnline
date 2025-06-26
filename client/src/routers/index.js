@@ -4,6 +4,8 @@ import CargarProducto from "../views/CargarProducto.vue";
 import RegisterView from "../views/RegisterView.vue";
 import LoginView from "../views/LoginView.vue";
 import VentasMensualesView from "../views/VentasMensualesView.vue";
+import EliminarProducto from "../views/EliminarProducto.vue";
+import EditarProducto from "../views/EditarProducto.vue";
 
 const router = createRouter({
   history: createWebHistory(),
@@ -24,6 +26,16 @@ const router = createRouter({
       path: "/ventas-mensuales",
       name: "VentasMensuales",
       component: VentasMensualesView,
+    },
+    {
+      path: "/eliminar-producto",
+      name: "EliminarProducto",
+      component: EliminarProducto,
+    },
+    {
+      path: "/editar-producto",
+      name: "EditarProducto",
+      component: EditarProducto,
     },
   ],
 });

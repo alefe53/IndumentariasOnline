@@ -1,33 +1,28 @@
 <template>
   <div class="container card">
     <h1>Bienvenido a Indumentarias Online</h1>
-    <p>
-      Conocé más sobre nuestros <b>productos</b> 
-    </p>
+    <p>Conocé más sobre nuestros <b>productos</b></p>
   </div>
   <ProductosCatalogoTotal />
-  <ProductoABM />
 </template>
 
 <script>
-import ProductoABM from '../components/ProductoABM.vue'
-import ProductosCatalogoTotal from '../components/ProductosCatalogoTotal.vue'
+import ProductosCatalogoTotal from "../components/ProductosCatalogoTotal.vue";
 
 export default {
-  components: { ProductoABM, ProductosCatalogoTotal }
-}
+  components: { ProductosCatalogoTotal },
+};
 </script>
 
 <style scoped>
-
 .container {
   max-width: 600px;
   margin: 60px auto;
   margin-top: 60px;
   background: rgba(255, 255, 255, 0.19);
-  
+
   backdrop-filter: blur(5px);
-  
+
   border-radius: 16px;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   padding: 40px 32px;

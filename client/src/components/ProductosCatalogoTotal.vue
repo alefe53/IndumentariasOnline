@@ -16,13 +16,17 @@
     </div>
 
     <div v-else class="product-grid">
-      <div v-for="producto in productos" :key="producto.id_producto" class="product-card">
+      <div
+        v-for="producto in productos"
+        :key="producto.id_producto"
+        class="product-card"
+      >
         <h3>{{ producto.nombre }}</h3>
         <p class="descripcion">{{ producto.descripcion }}</p>
         <p class="categoria">Categoría: {{ producto.categoria }}</p>
         <div class="precio-stock">
           <span class="precio">${{ producto.precio }}</span>
-          <span class="stock">Stock: {{ producto.stock_total }}</span>
+          <span class="stock">Stock: {{ producto.stock }}</span>
         </div>
       </div>
     </div>
@@ -31,7 +35,7 @@
 
 <script>
 export default {
-  name: 'ProductosCatalogoTotal',
+  name: "ProductosCatalogoTotal",
   data() {
     return {
       productos: [],
@@ -45,9 +49,9 @@ export default {
   methods: {
     async fetchProductos() {
       try {
-        const response = await fetch('http://localhost:3001/productos/getAll');
+        const response = await fetch("http://localhost:3001/productos/getAll");
         if (!response.ok) {
-          throw new Error('Error en la respuesta del servidor');
+          throw new Error("Error en la respuesta del servidor");
         }
         const jsonResponse = await response.json();
         this.productos = jsonResponse.payload;
@@ -90,8 +94,8 @@ h2 {
   border-radius: 8px;
 }
 .error-detalle {
-    font-size: 0.9rem;
-    font-style: italic;
+  font-size: 0.9rem;
+  font-style: italic;
 }
 
 .product-grid {
@@ -102,7 +106,7 @@ h2 {
 }
 
 .product-card {
-  background: #ffffff; 
+  background: #ffffff;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   padding: 20px;
@@ -123,27 +127,27 @@ h2 {
 
 .product-card .descripcion {
   color: #718096;
-  flex-grow: 1; 
+  flex-grow: 1;
   margin-bottom: 15px;
 }
 
 .product-card .categoria {
-    font-size: 0.85rem;
-    background-color: rgba(237, 242, 247, 0.3); 
-    color: #4a5568;
-    padding: 3px 8px;
-    border-radius: 99px;
-    align-self: flex-start;
-    margin-bottom: 15px;
+  font-size: 0.85rem;
+  background-color: rgba(237, 242, 247, 0.3);
+  color: #4a5568;
+  padding: 3px 8px;
+  border-radius: 99px;
+  align-self: flex-start;
+  margin-bottom: 15px;
 }
 
 .precio-stock {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid rgba(226, 232, 240, 0.3);
-    padding-top: 15px;
-    margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(226, 232, 240, 0.3);
+  padding-top: 15px;
+  margin-top: auto;
 }
 
 .precio {
@@ -153,7 +157,7 @@ h2 {
 }
 
 .stock {
-    font-size: 0.9rem;
-    color: #a0aec0;
+  font-size: 0.9rem;
+  color: #a0aec0;
 }
 </style>

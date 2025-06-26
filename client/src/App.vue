@@ -6,6 +6,12 @@
         <router-link to="/cargar-producto" class="nav-link"
           >Cargar Producto</router-link
         >
+        <router-link to="/eliminar-producto" class="nav-link"
+          >Eliminar Producto</router-link
+        >
+        <router-link to="/editar-producto" class="nav-link"
+          >Editar Producto</router-link
+        >
         <router-link to="/ventas-mensuales" class="nav-link"
           >Ventas mensuales</router-link
         >

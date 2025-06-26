@@ -65,7 +65,7 @@ export default {
 .catalogo-container {
   max-width: 1200px;
   margin: 40px auto;
-  padding: 20px;
+  padding: 2rem;
   text-align: center;
 }
 
@@ -77,16 +77,16 @@ h2 {
 
 .estado-feedback {
   padding: 40px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #4a5568;
-  background: rgba(255, 255, 255, 0.35);
-  backdrop-filter: blur(5px);
+  background: #f7fafc;
   border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .estado-feedback.error {
   color: #c53030;
-  background-color: #fed7d7;
+  background-color: #ffe5e5;
   border-radius: 8px;
 }
 .error-detalle {
@@ -102,19 +102,18 @@ h2 {
 }
 
 .product-card {
-  background: rgba(255, 255, 255, 0.35); 
-  backdrop-filter: blur(8px); 
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+  background: #ffffff; 
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   padding: 20px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
 
 .product-card h3 {

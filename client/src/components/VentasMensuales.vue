@@ -1,5 +1,5 @@
 <template>
-  <div class="ventas-mensuales-container">
+  <div class="ventas-mensuales-container card">
     <h2>Ventas mensuales</h2>
     <canvas ref="chartCanvas"></canvas>
   </div>
@@ -40,7 +40,7 @@ onMounted(async () => {
         {
           label: "Total ventas",
           data: values,
-          backgroundColor: "#3182ce",
+          backgroundColor: "#4a90e2",
         },
       ],
     },
@@ -57,16 +57,23 @@ onMounted(async () => {
 
 <style scoped>
 .ventas-mensuales-container {
-  max-width: 700px;
+  max-width: 800px;
   margin: 40px auto;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-  padding: 32px 24px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
   text-align: center;
 }
 canvas {
-  margin-top: 24px;
+  margin-top: 20px;
   max-width: 100%;
 }
+
+h2 {
+  font-size: 1.8rem;
+  color: #2a2a2a;
+  margin-bottom: 1.5rem;
+}
+
 </style>

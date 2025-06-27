@@ -37,6 +37,11 @@ const router = createRouter({
       name: "EditarProducto",
       component: EditarProducto,
     },
+    {
+      path: "/informe-admin",
+      name: "InformeAdmin",
+      component: () => import("../views/InformeAdmin.vue"),
+    },
   ],
 });
 

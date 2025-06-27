@@ -15,6 +15,12 @@
         <router-link to="/ventas-mensuales" class="nav-link"
           >Ventas mensuales</router-link
         >
+        <router-link
+          v-if="user && (user.rol === 'admin' || user.rol === 'administrador')"
+          to="/informe-admin"
+          class="nav-link"
+          >Informe Admin</router-link
+        >
         <router-link to="/login" class="nav-link">Loguearse</router-link>
         <router-link to="/register" class="nav-link">Registrarse</router-link>
       </nav>

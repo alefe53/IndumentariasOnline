@@ -72,7 +72,7 @@ export default {
   background-color: #fff;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
 h1 {
@@ -121,14 +121,15 @@ button:hover {
   background-color: #357dc0;
 }
 
-.error, .success {
+.error,
+.success {
   margin-top: 16px;
   text-align: center;
   font-weight: bold;
 }
 
 .error {
-  color: red
+  color: red;
 }
 
 .success {
